@@ -1,3 +1,3 @@
 # enviroSolution
 
-Solution is built with vs code as the IDE with a mySQL database 
+Solution is built with vs code as the IDE and a mySQL database 
