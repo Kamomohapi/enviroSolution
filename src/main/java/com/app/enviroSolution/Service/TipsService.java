@@ -39,7 +39,7 @@ public class TipsService {
         return tipRepository.findAll();
     }
 
-    public RecyclingTip getTipById(Long id) {
+    public RecyclingTip findById(Long id) {
         if (id == null || id <= 0) {
             throw new IllegalArgumentException("Invalid tip ID. The ID must be a positive number.");
         }

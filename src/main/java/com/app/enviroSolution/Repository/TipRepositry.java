@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TipRepositry  extends JpaRepository<RecyclingTip, Long> {
 
-    RecyclingTip CreateTip( RecyclingTip tip);
-    List<RecyclingTip> GetAllTips();
-    List<RecyclingTip> GetTipById(Long id);
+    RecyclingTip createTip( RecyclingTip tip);
+    List<RecyclingTip> getAllTips();
+    Optional<RecyclingTip> findById(Long id); 
     
 }
