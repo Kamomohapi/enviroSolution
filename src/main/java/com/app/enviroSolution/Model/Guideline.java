@@ -1,12 +1,15 @@
+package com.app.enviroSolution.model;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
+
 
 
 @Entity
-@Data 
+
 
 public class Guideline {
 
@@ -17,7 +20,7 @@ public class Guideline {
 
     @ManyToOne
     @JoinColumn(name = "categoryId", nullable = false)
-    private WasteCategory wasteCategory;
+    private wasteCategory wasteCategory;
     private String guidelineContent;
 
 
@@ -30,11 +33,11 @@ public class Guideline {
         this.guidelineId = guidelineId;
     }
 
-    public WasteCategory getWasteCategory() {
+    public wasteCategory getWasteCategory() {
         return wasteCategory;
     }
 
-    public void setWasteCategory(WasteCategory wasteCategory) {
+    public void setWasteCategory(wasteCategory wasteCategory) {
         this.wasteCategory = wasteCategory;
     }
 

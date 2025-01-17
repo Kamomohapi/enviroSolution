@@ -1,13 +1,16 @@
-package com.app.enviroSolution.Repository;
+package com.app.enviroSolution.repository;
 
-import com.app.enviroSolution.model.WasteCategory;
+import com.app.enviroSolution.model.wasteCategory;
+
+import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface WasteRepository extends JpaRepository <WasteCategory, Long>{
+public interface WasteRepository extends JpaRepository <wasteCategory, Long>{
 
-    List<WasteCategory> getAllWasteCategories();
-    WasteCategory saveCategory (WasteCategory category);
-    WasteCategory findCategoryById(Long categoryId);
-    WasteCategory updateCategory(Long categoryId, WasteCategory updatedCategory)
-    Optional<WasteCategory> findByCategoryName(String categoryName);
+    List<wasteCategory> getAllWasteCategories();
+    wasteCategory saveCategory (wasteCategory category);
+    wasteCategory findCategoryById(long categoryId);
+    wasteCategory updateCategory(Long categoryId, wasteCategory updatedCategory);
+    Optional<wasteCategory> findByCategoryName(String categoryName);
 }

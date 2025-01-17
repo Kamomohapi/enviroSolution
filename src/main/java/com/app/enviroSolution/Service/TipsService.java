@@ -1,11 +1,11 @@
-package com.app.enviroSolution.Service;
+package com.app.enviroSolution.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.app.enviroSolution.model.RecyclingTip;
-import com.app.enviroSolution.model.WasteCategory;
-import com.app.enviroSolution.Repository.TipRepositry;
-import com.app.enviroSolution.Repository.WasteRepository;
+import com.app.enviroSolution.model.wasteCategory;
+import com.app.enviroSolution.repository.TipRepositry;
+import com.app.enviroSolution.repository.WasteRepository;
 
 @Service
 
@@ -26,7 +26,7 @@ public class TipsService {
             throw new IllegalArgumentException("Tip cannot be null.");
         }
 
-        Optional<WasteCategory> wasteCategoryOptional = wasteRepository.findByCategoryName(categoryName);
+        Optional<wasteCategory> wasteCategoryOptional = wasteRepository.findByCategoryName(categoryName);
         if (wasteCategoryOptional.isEmpty()) {
             throw new IllegalArgumentException("Waste category not found with name: " + categoryName);
         }

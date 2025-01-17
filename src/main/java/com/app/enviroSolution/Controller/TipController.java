@@ -1,6 +1,6 @@
-package com.app.enviroSolution.Controller;
-import com.app.enviroSolution.Service.TipService;
+package com.app.enviroSolution.controller;
 import com.app.enviroSolution.model.RecyclingTip;
+import com.app.enviroSolution.service.TipService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

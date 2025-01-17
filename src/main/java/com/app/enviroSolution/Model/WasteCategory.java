@@ -1,10 +1,11 @@
+package com.app.enviroSolution.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
-public class WasteCategory {
+public class WasteCategory{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

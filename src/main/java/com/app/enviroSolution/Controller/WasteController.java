@@ -1,4 +1,4 @@
-package com.app.enviroSolution.Controller;
+package com.app.enviroSolution.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.enviroSolution.Model.WasteCategory;
-import com.app.enviroSolution.Service.WasteService;
+import com.app.enviroSolution.model.wasteCategory;
+import com.app.enviroSolution.service.WasteService;
 
 @RestController
 @RequestMapping("/waste")
@@ -25,10 +25,10 @@ public class WasteController {
     }
 
      @GetMapping
-    public List<WasteCategory> getAllCategories() {
+    public List<wasteCategory> getAllCategories() {
        
         try{
-            List<WasteCategory> categories = wasteService.findAll();
+            List<wasteCategory> categories = wasteService.findAll();
 
             if (categories == null || categories.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body("No categories found.");
@@ -42,14 +42,14 @@ public class WasteController {
     }
     
      @GetMapping("/{id}")
-    public WasteCategory getCategoryById(@PathVariable Long id) {
+    public wasteCategory getCategoryById(@PathVariable Long id) {
        
         if (id == null || id <= 0) {
             return ResponseEntity.badRequest().body("Invalid category ID. The ID must be a positive number.");
         }
 
         try{
-            Optional<WasteCategory> category = wasteService.findById(id);
+            Optional<wasteCategory> category = wasteService.findById(id);
 
             if (category.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Category not found with ID: " + id);
@@ -64,14 +64,14 @@ public class WasteController {
     }
 
      @PostMapping
-    public WasteCategory createCategory(@RequestBody WasteCategory category) {
+    public wasteCategory createCategory(@RequestBody wasteCategory category) {
         
         if (category == null) {
             return ResponseEntity.badRequest().body("Category data is required.");
         }
         
        try{
-        WasteCategory savedCategory = wasteService.save(category);
+        wasteCategory savedCategory = wasteService.save(category);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(savedCategory);
 
@@ -83,13 +83,13 @@ public class WasteController {
     }
 
     @DeleteMapping("/{id}")
-    public WasteCategory deleteCategory(@PathVariable Long id) {
+    public wasteCategory deleteCategory(@PathVariable Long id) {
         if (id == null || id <= 0) {
             return ResponseEntity.badRequest().body("Invalid category ID.");
         }
 
         try{
-            Optional<WasteCategory> category = wasteService.findById(id);
+            Optional<wasteCategory> category = wasteService.findById(id);
         if (category.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Category not found with ID: " + id);
         }
